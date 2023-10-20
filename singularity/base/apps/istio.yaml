@@ -3,5 +3,12 @@ kind: Application
 metadata:
   name: istio
 spec:
- source:
+  source:
     path: clusters/overlay/homelab-rpi-cluster-1/istio
+  destination:
+    namespace: istio
+  # Sync policy
+  syncPolicy:
+    # override the syncOptions
+    syncOptions: # Sync options which modifies sync behavior
+      - CreateNamespace=true # Namespace Auto-Creation ensures that namespace specified as the application destination exists in the destination cluster.
