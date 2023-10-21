@@ -6,5 +6,5 @@ helmCharts:
 - name: istiod
   repo: https://istio-release.storage.googleapis.com/charts
   releaseName: istiod
-  namespace: istio
+  namespace: istio-system
   version: 1.19.0

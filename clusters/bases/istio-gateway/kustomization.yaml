@@ -5,6 +5,6 @@ helmCharts:
 - name: gateway
   repo: https://istio-release.storage.googleapis.com/charts
   releaseName: istio-gateway
-  namespace: istio
+  namespace: istio-system
   version: 1.19.0
   valuesFile: values.yaml
