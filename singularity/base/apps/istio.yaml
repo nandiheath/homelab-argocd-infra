@@ -12,3 +12,8 @@ spec:
     # override the syncOptions
     syncOptions: # Sync options which modifies sync behavior
       - CreateNamespace=true # Namespace Auto-Creation ensures that namespace specified as the application destination exists in the destination cluster.
+  ignoreDifferences:
+    - group: admissionregistration.k8s.io/v1
+      kind: ValidatingWebhookConfiguration
+      jsonPointers:
+        - /webhooks/0/failurePolicy
