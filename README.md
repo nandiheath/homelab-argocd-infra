@@ -16,7 +16,7 @@ Setup the K3S cluster similar to [HomeLab](https://github.com/nandiheath/homelab
 Or alternatively, 
 - A Kubernetes cluster
 - ArgoCD with `--enable-helm` enabled
-- ClusterSecretStore set up wit [External-Secrets](https://external-secrets.io/latest/) to access vault in 1Password
+- Install [External-Secrets](https://external-secrets.io/latest/) and add the corresponding `ClusterSecretStore` that has access to the 1Password vault
 
 ## Directory Structure
 
