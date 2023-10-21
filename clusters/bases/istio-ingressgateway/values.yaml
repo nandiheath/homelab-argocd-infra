@@ -23,5 +23,6 @@ service:
   ipFamilyPolicy: ""
   ipFamilies: []
 
+name: istio-ingressgateway
 labels:
   istio: ingressgateway

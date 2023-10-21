@@ -4,7 +4,7 @@ kind: Kustomization
 helmCharts:
 - name: gateway
   repo: https://istio-release.storage.googleapis.com/charts
-  releaseName: istio-gateway
+  releaseName: istio-ingressgateway
   namespace: istio-system
   version: 1.19.0
   valuesFile: values.yaml
