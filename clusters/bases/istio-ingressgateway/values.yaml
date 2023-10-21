@@ -22,3 +22,6 @@ service:
   externalIPs: []
   ipFamilyPolicy: ""
   ipFamilies: []
+
+labels:
+  istio: ingressgateway

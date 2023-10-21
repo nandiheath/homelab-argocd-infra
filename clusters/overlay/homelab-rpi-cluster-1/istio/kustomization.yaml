@@ -5,7 +5,7 @@ namespace: istio-system
 
 resources:
   - ../../../bases/istio-base
-  - ../../../bases/istio-gateway
+  - ../../../bases/istio-ingressgateway
   - ../../../bases/istiod
 
 labels:
