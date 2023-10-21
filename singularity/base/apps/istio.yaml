@@ -6,7 +6,7 @@ spec:
   source:
     path: clusters/overlay/homelab-rpi-cluster-1/istio
   destination:
-    namespace: istio
+    namespace: istio-system
   # Sync policy
   syncPolicy:
     # override the syncOptions
