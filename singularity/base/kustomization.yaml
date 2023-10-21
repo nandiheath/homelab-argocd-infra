@@ -5,7 +5,6 @@ resources:
   - apps/istio.yaml
   - apps/cloudflared.yaml
 
-
 patches:
   - path: argocd-app-patch.yaml
     target:

@@ -4,7 +4,7 @@ metadata:
   name: cloudflared
 spec:
   source:
-    path: clusters/overlay/homelab-rpi-cluster-1/cloudflared
+    path: kustomize/overlay/homelab-rpi-cluster-1/cloudflared
   destination:
     namespace: cloudflared
   # Sync policy
