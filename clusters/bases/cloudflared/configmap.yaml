@@ -27,4 +27,4 @@ data:
     # E.g. `cloudflared tunnel route dns example-tunnel tunnel.example.com`.
     ingress:
     # Route everything to istio ingress gateway
-    - service: https://istio-ingressgateway.istio-system.svc.cluster.local
+    - service: http://istio-ingressgateway.istio-system.svc.cluster.local
