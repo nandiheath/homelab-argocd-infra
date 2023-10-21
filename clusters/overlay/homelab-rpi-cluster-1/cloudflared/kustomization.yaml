@@ -1,0 +1,16 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: cloudflared
+
+resources:
+  - ../../../bases/cloudflared
+
+labels:
+  - includeSelectors: false
+    includeTemplates: true
+    pairs:
+      app.kubernetes.io/name: cloudflared
+      app.kubernetes.io/managed-by: argocd
+      app.kubernetes.io/component: network
+      app.kubernetes.io/version: 2022.3.0
