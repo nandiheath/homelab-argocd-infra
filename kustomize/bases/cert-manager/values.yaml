@@ -1,0 +1,6 @@
+# values file from: https://artifacthub.io/packages/helm/cert-manager/cert-manager?modal=values
+
+installCRDs: true
+
+# When this flag is enabled, secrets will be automatically removed when the certificate resource is deleted
+enableCertificateOwnerRef: true
