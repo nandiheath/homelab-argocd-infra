@@ -5,6 +5,7 @@ resources:
   - apps/istio.yaml
   - apps/cloudflared.yaml
   - apps/cert-manager.yaml
+  - apps/metallb.yaml
 
 patches:
   - path: argocd-app-patch.yaml

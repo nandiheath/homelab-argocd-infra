@@ -4,6 +4,7 @@ kind: Kustomization
 resources:
   - ../../../bases/istio-base
   - ../../../bases/istio-ingressgateway
+  - ../../../bases/istio-public-ingressgateway
   - ../../../bases/istiod
 
 labels:

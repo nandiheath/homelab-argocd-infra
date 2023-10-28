@@ -1,0 +1,19 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: metallb
+spec:
+  source:
+    path: kustomize/overlay/homelab-rpi-cluster-1/metallb
+  destination:
+    namespace: metallb-system
+  # Sync policy
+  syncPolicy:
+    # override the syncOptions
+    syncOptions: # Sync options which modifies sync behavior
+      - CreateNamespace=true # Namespace Auto-Creation ensures that namespace specified as the application destination exists in the destination cluster.
+  ignoreDifferences:
+    - group: admissionregistration.k8s.io
+      kind: ValidatingWebhookConfiguration
+      jsonPointers:
+        - /webhooks/0/failurePolicy
