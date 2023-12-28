@@ -6,6 +6,7 @@ resources:
   - apps/cloudflared.yaml
   - apps/cert-manager.yaml
   - apps/metallb.yaml
+  - apps/home-assistant.yaml
 
 patches:
   - path: argocd-app-patch.yaml
