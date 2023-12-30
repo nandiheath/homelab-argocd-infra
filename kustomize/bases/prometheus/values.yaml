@@ -82,85 +82,6 @@ server:
     ##
     storageClass: "longhorn"
 
-    ## Prometheus server data Persistent Volume Binding Mode
-    ## If defined, volumeBindingMode: <volumeBindingMode>
-    ## If undefined (the default) or set to null, no volumeBindingMode spec is
-    ##   set, choosing the default mode.
-    ##
-    # volumeBindingMode: ""
-
-    ## Subdirectory of Prometheus server data Persistent Volume to mount
-    ## Useful if the volume's root directory is not empty
-    ##
-    subPath: ""
-
-    ## Persistent Volume Claim Selector
-    ## Useful if Persistent Volumes have been provisioned in advance
-    ## Ref: https://kubernetes.io/docs/concepts/storage/persistent-volumes/#selector
-    ##
-    # selector:
-    #  matchLabels:
-    #    release: "stable"
-    #  matchExpressions:
-    #    - { key: environment, operator: In, values: [ dev ] }
-
-    ## Persistent Volume Name
-    ## Useful if Persistent Volumes have been provisioned in advance and you want to use a specific one
-    ##
-    # volumeName: ""
-
-  emptyDir:
-    ## Prometheus server emptyDir volume size limit
-    ##
-    sizeLimit: ""
-
-  ## Annotations to be added to Prometheus server pods
-  ##
-  podAnnotations: {}
-  # iam.amazonaws.com/role: prometheus
-
-  ## Labels to be added to Prometheus server pods
-  ##
-  podLabels: {}
-
-  ## Prometheus AlertManager configuration
-  ##
-  alertmanagers: []
-
-  ## Use a StatefulSet if replicaCount needs to be greater than 1 (see below)
-  ##
-  replicaCount: 1
-
-  ## Number of old history to retain to allow rollback
-  ## Default Kubernetes value is set to 10
-  ##
-  revisionHistoryLimit: 10
-
-  ## Annotations to be added to deployment
-  ##
-  deploymentAnnotations: {}
-
-  ## Prometheus server readiness and liveness probe initial delay and timeout
-  ## Ref: https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/
-  ##
-  tcpSocketProbeEnabled: false
-  probeScheme: HTTP
-  readinessProbeInitialDelay: 30
-  readinessProbePeriodSeconds: 5
-  readinessProbeTimeout: 4
-  readinessProbeFailureThreshold: 3
-  readinessProbeSuccessThreshold: 1
-  livenessProbeInitialDelay: 30
-  livenessProbePeriodSeconds: 15
-  livenessProbeTimeout: 10
-  livenessProbeFailureThreshold: 3
-  livenessProbeSuccessThreshold: 1
-  startupProbe:
-    enabled: false
-    periodSeconds: 5
-    failureThreshold: 30
-    timeoutSeconds: 10
-
   ## Prometheus server resource requests and limits
   ## Ref: http://kubernetes.io/docs/user-guide/compute-resources/
   ##
@@ -170,44 +91,6 @@ server:
      requests:
        cpu: 1
      memory: 1G
-
-  # Required for use in managed kubernetes clusters (such as AWS EKS) with custom CNI (such as calico),
-  # because control-plane managed by AWS cannot communicate with pods' IP CIDR and admission webhooks are not working
-  ##
-  hostNetwork: false
-
-  # When hostNetwork is enabled, this will set to ClusterFirstWithHostNet automatically
-  dnsPolicy: ClusterFirst
-
-  # Use hostPort
-  # hostPort: 9090
-
-  # Use portName
-  portName: ""
-
-  # Custom DNS configuration to be added to prometheus server pods
-  dnsConfig: {}
-    # nameservers:
-    #   - 1.2.3.4
-    # searches:
-    #   - ns1.svc.cluster-domain.example
-    #   - my.dns.search.suffix
-    # options:
-    #   - name: ndots
-  #     value: "2"
-  #   - name: edns0
-
-  ## Security context to be added to server pods
-  ##
-  securityContext:
-    runAsUser: 65534
-    runAsNonRoot: true
-    runAsGroup: 65534
-    fsGroup: 65534
-
-  ## Security context to be added to server container
-  ##
-  containerSecurityContext: {}
 
   service:
     ## If false, no Service will be created for the Prometheus server
@@ -775,43 +658,3 @@ alertmanager:
     size: 2Gi
 
   storageClass: "longhorn"
-
-  podSecurityContext:
-    runAsUser: 65534
-    runAsNonRoot: true
-    runAsGroup: 65534
-    fsGroup: 65534
-
-## kube-state-metrics sub-chart configurable values
-## Please see https://github.com/prometheus-community/helm-charts/tree/main/charts/kube-state-metrics
-##
-kube-state-metrics:
-  ## If false, kube-state-metrics sub-chart will not be installed
-  ##
-  enabled: true
-
-## prometheus-node-exporter sub-chart configurable values
-## Please see https://github.com/prometheus-community/helm-charts/tree/main/charts/prometheus-node-exporter
-##
-prometheus-node-exporter:
-  ## If false, node-exporter will not be installed
-  ##
-  enabled: true
-
-  rbac:
-    pspEnabled: false
-
-  containerSecurityContext:
-    allowPrivilegeEscalation: false
-
-## prometheus-pushgateway sub-chart configurable values
-## Please see https://github.com/prometheus-community/helm-charts/tree/main/charts/prometheus-pushgateway
-##
-prometheus-pushgateway:
-  ## If false, pushgateway will not be installed
-  ##
-  enabled: true
-
-  # Optional service annotations
-  serviceAnnotations:
-    prometheus.io/probe: pushgateway
