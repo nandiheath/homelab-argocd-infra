@@ -18,13 +18,6 @@ server:
   strategy:
     type: Recreate
 
-  ## hostAliases allows adding entries to /etc/hosts inside the containers
-  hostAliases: []
-  #   - ip: "127.0.0.1"
-  #     hostnames:
-  #       - "example.com"
-
-
   ## PodDisruptionBudget settings
   ## ref: https://kubernetes.io/docs/concepts/workloads/pods/disruptions/
   ##
@@ -87,7 +80,7 @@ server:
     ##   set, choosing the default provisioner.  (gp2 on AWS, standard on
     ##   GKE, AWS & OpenStack)
     ##
-    # storageClass: "-"
+    storageClass: "longhorn"
 
     ## Prometheus server data Persistent Volume Binding Mode
     ## If defined, volumeBindingMode: <volumeBindingMode>
@@ -780,6 +773,8 @@ alertmanager:
 
   persistence:
     size: 2Gi
+
+  storageClass: "longhorn"
 
   podSecurityContext:
     runAsUser: 65534
