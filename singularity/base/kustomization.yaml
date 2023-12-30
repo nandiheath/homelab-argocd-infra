@@ -1,13 +1,12 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
-
 resources:
-  - apps/istio.yaml
   - apps/cloudflared.yaml
-  - apps/cert-manager.yaml
   - apps/metallb.yaml
+  - apps/prometheus.yaml
+  - apps/istio.yaml
+  - apps/cert-manager.yaml
   - apps/home-assistant.yaml
-
 patches:
   - path: argocd-app-patch.yaml
     target:
