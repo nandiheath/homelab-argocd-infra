@@ -32,10 +32,14 @@ longhornManager:
   log:
     # -- Options: `plain`, `json`
     format: json
+  priorityClass: *defaultPriorityClassNameRef
 
 longhornUI:
   # -- Replica count for longhorn UI
   replicas: 1
+
+  # -- Priority class count for Longhorn UI
+  priorityClass: *defaultPriorityClassNameRef
 
 
 serviceAccount:
@@ -47,3 +51,9 @@ metrics:
     # Enable this to create the ServiceMonitor
     enabled: true
 
+longhornDriver:
+  # -- Priority class for the Longhorn CSI driver
+  priorityClass: *defaultPriorityClassNameRef
+
+defaultSettings:
+  priorityClass: &defaultPriorityClassNameRef "system-node-critical"
