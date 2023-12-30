@@ -11,5 +11,5 @@ labels:
     pairs:
       app.kubernetes.io/name: prometheus
       app.kubernetes.io/managed-by: argocd
-      app.kubernetes.io/component: changeme
-      app.kubernetes.io/version: changeme
+      app.kubernetes.io/component: prometheus
+      app.kubernetes.io/version: 25.8.2

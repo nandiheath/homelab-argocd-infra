@@ -5,3 +5,5 @@ apply istio-base > istiod > istio-ingress in order - the admission webhook must 
 - [ ] chart values cannot be override - it needs to be patched. https://github.com/kubernetes-sigs/kustomize/issues/4658
 - [ ] pre-commit hook to lint kustomize
 - [x] scripts to boilerplate new modules
+- [ ] expose prometheus/argocd on local network
+- 
