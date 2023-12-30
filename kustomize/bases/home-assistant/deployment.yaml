@@ -17,7 +17,6 @@ spec:
       labels:
         app: home-assistant
     spec:
-
       containers:
         - name: home-assistant
           image: homeassistant/home-assistant:2023.12
