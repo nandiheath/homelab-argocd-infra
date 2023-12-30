@@ -1,0 +1,49 @@
+service:
+  ui:
+    # -- Define the Longhorn UI service type. Options: `ClusterIP`, `NodePort`, `LoadBalancer`, `Rancher-Proxy`
+    type: ClusterIP
+    # -- NodePort port number (to set explicitly, chooses port between 30000-32767)
+    nodePort: null
+  manager:
+    # -- Define the Longhorn manager service type.
+    type: ClusterIP
+    # -- NodePort port number (to set explicitly, chooses port between 30000-32767)
+    nodePort: ""
+
+persistence:
+  # -- Set Longhorn StorageClass as default
+  defaultClass: false
+  # -- Set filesystem type for Longhorn StorageClass
+  defaultFsType: ext4
+  # -- Set mkfs options for Longhorn StorageClass
+  defaultMkfsParams: ""
+  # -- Set replica count for Longhorn StorageClass
+  defaultClassReplicaCount: 3
+  # -- Set data locality for Longhorn StorageClass. Options: `disabled`, `best-effort`
+  defaultDataLocality: disabled
+  # -- Define reclaim policy. Options: `Retain`, `Delete`
+  reclaimPolicy: Delete
+
+
+helmPreUpgradeCheckerJob:
+  enabled: true
+
+longhornManager:
+  log:
+    # -- Options: `plain`, `json`
+    format: json
+
+longhornUI:
+  # -- Replica count for longhorn UI
+  replicas: 1
+
+
+serviceAccount:
+  # -- Annotations to add to the service account
+  annotations: {}
+
+metrics:
+  serviceMonitor:
+    # Enable this to create the ServiceMonitor
+    enabled: true
+

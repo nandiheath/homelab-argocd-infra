@@ -1,0 +1,15 @@
+
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  - ../../../bases/longhorn
+
+labels:
+  - includeSelectors: false
+    includeTemplates: true
+    pairs:
+      app.kubernetes.io/name: longhorn
+      app.kubernetes.io/managed-by: argocd
+      app.kubernetes.io/component: longhorn
+      app.kubernetes.io/version: 1.5.3
