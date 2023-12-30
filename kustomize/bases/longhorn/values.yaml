@@ -24,6 +24,9 @@ persistence:
   # -- Define reclaim policy. Options: `Retain`, `Delete`
   reclaimPolicy: Delete
 
+defaultSettings:
+  priorityClass: &priorityClassNameRef "system-node-critical"
+
 
 helmPreUpgradeCheckerJob:
   enabled: false
@@ -32,14 +35,14 @@ longhornManager:
   log:
     # -- Options: `plain`, `json`
     format: json
-  priorityClass: *defaultPriorityClassNameRef
+  priorityClass: *priorityClassNameRef
 
 longhornUI:
   # -- Replica count for longhorn UI
   replicas: 1
 
   # -- Priority class count for Longhorn UI
-  priorityClass: *defaultPriorityClassNameRef
+  priorityClass: *priorityClassNameRef
 
 
 serviceAccount:
@@ -53,7 +56,5 @@ metrics:
 
 longhornDriver:
   # -- Priority class for the Longhorn CSI driver
-  priorityClass: *defaultPriorityClassNameRef
+  priorityClass: *priorityClassNameRef
 
-defaultSettings:
-  priorityClass: &defaultPriorityClassNameRef "system-node-critical"
