@@ -9,6 +9,6 @@ helmCharts:
     additionalValuesFiles:
       - values-upstream.yaml
       - values.yaml
-    version: 1.5.3
+    version: 1.5.2
 
 resources: []
