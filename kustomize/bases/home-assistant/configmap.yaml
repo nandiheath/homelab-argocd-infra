@@ -17,4 +17,4 @@ data:
         - 10.43.0.0/16
         - 192.168.0.0/16
     prometheus:
-      namespace: home-assistant
+      namespace: ha
