@@ -7,6 +7,10 @@ resources:
     cpu: 500m
     memory: 256Mi
 
+deploymentStrategy:
+  type: Recreate
+
+
 ## Enable persistence using Persistent Volume Claims
 ## ref: http://kubernetes.io/docs/user-guide/persistent-volumes/
 ##
