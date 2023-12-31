@@ -103,7 +103,7 @@ grafana.ini:
   server:
     # https://grafana.com/tutorials/run-grafana-behind-a-proxy/
     domain: homelab.nandi.sh
-    root_url: %(protocol)s://%(domain)s/grafana/
+    root_url: "%(protocol)s://%(domain)s/grafana/"
     serve_from_sub_path: true
       ## grafana Authentication can be enabled with the following values on grafana.ini
       # server:
