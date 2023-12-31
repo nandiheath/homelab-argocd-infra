@@ -6,6 +6,7 @@ spec:
   hosts:
     - "homelab.nandi.sh"
   gateways:
+    # TODO: move to a shared gateway
     - home-assistant.home-assistant-gateway
   http:
     - name: "homelab"
