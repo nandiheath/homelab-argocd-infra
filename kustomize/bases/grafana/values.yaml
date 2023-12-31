@@ -7,9 +7,9 @@ resources:
     cpu: 500m
     memory: 256Mi
 
+# stateful PVC will block the rolling update
 deploymentStrategy:
   type: Recreate
-
 
 ## Enable persistence using Persistent Volume Claims
 ## ref: http://kubernetes.io/docs/user-guide/persistent-volumes/
