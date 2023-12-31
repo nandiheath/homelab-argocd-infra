@@ -3,7 +3,7 @@
 # example adds prometheus-blackbox-exporter scrape config
 extraScrapeConfigs: |
   - job_name: 'home-assistant-exporter'
-    metrics_path: /api/promethues
+    metrics_path: /api/prometheus
     scrape_interval: 60s
     static_configs:
      - targets:
