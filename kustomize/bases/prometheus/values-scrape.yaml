@@ -1,0 +1,15 @@
+# adds additional scrape configs to prometheus.yml
+# must be a string so you have to add a | after extraScrapeConfigs:
+# example adds prometheus-blackbox-exporter scrape config
+extraScrapeConfigs: |
+  - job_name: 'home-assistant-exporter'
+    metrics_path: /api/promethues
+    scrape_interval: 60s
+    static_configs:
+     - targets:
+       - home-assistant.home-assistant.svc.cluster.local:8123
+    bearerTokenSecret:
+      name: home-assistant-access-token
+      key: access_token
+#     - target_label: __address__
+#       replacement: prometheus-blackbox-exporter:9115

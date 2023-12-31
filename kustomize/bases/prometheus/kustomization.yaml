@@ -9,7 +9,9 @@ helmCharts:
     additionalValuesFiles:
       - values-upstream.yaml
       - values.yaml
+      - values-scrape.yaml
     version: 25.8.2
 
-resources: []
+resources:
+  - external-secret.yaml
 
