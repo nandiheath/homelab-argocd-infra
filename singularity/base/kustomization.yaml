@@ -5,6 +5,7 @@ resources:
   - apps/metallb.yaml
   - apps/prometheus.yaml
   - apps/longhorn.yaml
+  - apps/grafana.yaml
   - apps/istio.yaml
   - apps/cert-manager.yaml
   - apps/home-assistant.yaml

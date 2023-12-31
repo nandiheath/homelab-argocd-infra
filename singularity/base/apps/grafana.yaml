@@ -1,0 +1,16 @@
+
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: grafana
+spec:
+  source:
+    path: kustomize/overlay/homelab-rpi-cluster-1/grafana
+  destination:
+    namespace: grafana
+  # Sync policy
+  syncPolicy:
+    # override the syncOptions
+    syncOptions: # Sync options which modifies sync behavior
+      - CreateNamespace=true # Namespace Auto-Creation ensures that namespace specified as the application destination exists in the destination cluster.
+

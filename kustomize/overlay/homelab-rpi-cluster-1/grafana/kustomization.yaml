@@ -1,0 +1,15 @@
+
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  - ../../../bases/grafana
+
+labels:
+  - includeSelectors: false
+    includeTemplates: true
+    pairs:
+      app.kubernetes.io/name: grafana
+      app.kubernetes.io/managed-by: argocd
+      app.kubernetes.io/component: changeme
+      app.kubernetes.io/version: changeme

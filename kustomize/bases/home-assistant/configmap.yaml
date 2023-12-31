@@ -6,6 +6,8 @@ metadata:
 data:
   known_devices.yaml: |
   automations.yaml: |
+  # for prom config:
+  # https://www.home-assistant.io/integrations/prometheus/
   configuration.yaml: |-
     default_config:
     frontend:
