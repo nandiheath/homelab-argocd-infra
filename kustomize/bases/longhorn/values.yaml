@@ -27,7 +27,6 @@ persistence:
 defaultSettings:
   priorityClass: &priorityClassNameRef "system-node-critical"
 
-
 helmPreUpgradeCheckerJob:
   enabled: false
 

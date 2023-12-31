@@ -9,14 +9,6 @@ helmCharts:
     additionalValuesFiles:
       - values-upstream.yaml
       - values.yaml
-    version: 1.5.3
+    version: 1.4.4
 
 resources: []
-
-# the `backendStoreDriver` field is first introduced in 1.5.0 and it is missing on the helm chart.
-# https://longhorn.io/docs/1.5.3/references/storage-class-parameters/#backend-store-driver-field-parametersbackendstoredriver
-patches:
-  - target:
-      kind: ConfigMap
-      name: longhorn-storageclass
-    path: storageclass-cm.yaml
