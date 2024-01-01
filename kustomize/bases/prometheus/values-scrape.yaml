@@ -4,7 +4,7 @@
 extraScrapeConfigs: |
   - job_name: 'home-assistant-exporter'
     metrics_path: /api/prometheus
-    scrape_interval: 60s
+    scrape_interval: 30s
     static_configs:
      - targets:
        - home-assistant.home-assistant.svc.cluster.local:8123
